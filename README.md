@@ -17,13 +17,17 @@ I have only some pointers around this in the ssl/README.md
 
 * Compile it with Rust and run it locally, by executing the all_origins_rust command
 
-> cargo build --release
-> ./target/release/all_origins_rust
+```console
+cargo build --release
+./target/release/all_origins_rust
+```
 
 * Build the Docker container and run in your containerized environment
 
-> docker build . -t ekryd/allorigins:6.0.0
-> docker run --rm -p 38724:38724 -p 38725:38725 --name allorigins5 ekryd/allorigins:6.0.0
+```console
+docker build . -t ekryd/allorigins:6.0.0
+docker run --rm -p 38724:38724 -p 38725:38725 --name allorigins5 ekryd/allorigins:6.0.0
+```
 
 ### Use the service
 
@@ -34,6 +38,7 @@ You can test the service by using cURL:
 Or just enter the following in your web-browser:
 
 > https://localhost:38725/get?url=https://www.google.com
+
 > http://127.0.0.1:38724/get?url=http://google.com
 
 ## Functionality
@@ -47,13 +52,21 @@ Heavily inspired by https://github.com/gnuns/allOrigins
 ## Other useful commands
 
 Test the code
-> cargo test
+```console
+cargo test
+```
 
 List all docker images with same name
-> docker images ekryd/allorigins:6.0.0
+```console
+docker images ekryd/allorigins:6.0.0
+```
 
 Save docker image as tar file
-> docker save -o allorigins6_docker.tar ekryd/allorigins:6.0.0
+```console
+docker save -o allorigins6_docker.tar ekryd/allorigins:6.0.0
+```
 
 Start a command shell inside a running container
-> docker exec -i -t allorigins6 /bin/sh
+```console
+docker exec -i -t allorigins6 /bin/sh
+```
