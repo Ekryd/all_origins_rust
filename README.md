@@ -33,7 +33,9 @@ docker run --rm -p 38724:38724 -p 38725:38725 --name allorigins5 ekryd/allorigin
 
 You can test the service by using cURL:
 
-> TODO
+> curl https://localhost:38725/get?url=https://www.google.com
+
+> curl --insecure https://localhost:38725/get?url=https://www.google.com
 
 Or just enter the following in your web-browser:
 
