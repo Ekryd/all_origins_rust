@@ -1,2 +1,4 @@
 /target
 .idea
+/ssl/cert.pem
+/ssl/privkey.pem
