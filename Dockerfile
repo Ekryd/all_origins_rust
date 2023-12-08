@@ -16,7 +16,7 @@ RUN cargo test
 RUN cargo install --path .
 
 # Build the release image ------
-FROM alpine:3.18
+FROM alpine:3.19
 
 # Get the compiled code from the build image
 COPY --from=BUILD_IMAGE /usr/local/cargo/bin/all_origins_rust /usr/local/bin/all_origins_rust
