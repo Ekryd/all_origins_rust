@@ -1,5 +1,5 @@
 # Create an initial image as build image
-FROM rust:1.75-alpine3.18 AS BUILD_IMAGE
+FROM rust:1.76-alpine3.18 AS BUILD_IMAGE
 
 RUN apk update
 RUN apk add pkgconfig libressl-dev musl-dev
