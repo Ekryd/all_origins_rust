@@ -319,8 +319,8 @@ mod tests {
             .respond_with(
                 ResponseTemplate::new(204)
                     .set_delay(Duration::from_millis(5))
-                    .insert_header(header::CONTENT_TYPE, "text/html")
-                    .insert_header(header::CONTENT_LENGTH, "invalid"),
+                    .insert_header(header::CONTENT_TYPE.as_str(), "text/html")
+                    .insert_header(header::CONTENT_LENGTH.as_str(), "invalid"),
             )
             .mount(&server)
             .await;
