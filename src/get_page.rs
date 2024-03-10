@@ -165,7 +165,7 @@ mod tests {
             .and(path("/example"))
             .respond_with(
                 ResponseTemplate::new(200)
-                    .append_header(header::CONTENT_TYPE, "text/plain")
+                    .append_header(header::CONTENT_TYPE.as_str(), "text/plain")
                     .set_body_string("Hello, Get"),
             )
             .mount(&server)
@@ -175,7 +175,7 @@ mod tests {
             .and(path("/example"))
             .respond_with(
                 ResponseTemplate::new(200)
-                    .append_header(header::CONTENT_TYPE, "text/plain")
+                    .append_header(header::CONTENT_TYPE.as_str(), "text/plain")
                     .set_body_string("Hello, Delete"),
             )
             .mount(&server)
@@ -185,7 +185,7 @@ mod tests {
             .and(path("/example"))
             .respond_with(
                 ResponseTemplate::new(201)
-                    .append_header(header::CONTENT_TYPE, "text/plain")
+                    .append_header(header::CONTENT_TYPE.as_str(), "text/plain")
                     .set_body_string("Hello, Post"),
             )
             .mount(&server)
@@ -195,7 +195,7 @@ mod tests {
             .and(path("/example"))
             .respond_with(
                 ResponseTemplate::new(200)
-                    .append_header(header::CONTENT_TYPE, "text/plain")
+                    .append_header(header::CONTENT_TYPE.as_str(), "text/plain")
                     .set_body_string("Hello, Put"),
             )
             .mount(&server)
@@ -205,8 +205,8 @@ mod tests {
             .and(path("/example"))
             .respond_with(
                 ResponseTemplate::new(200)
-                    .append_header(header::CONTENT_TYPE, "text/plain")
-                    .append_header(header::CONTENT_LENGTH, "11")
+                    .append_header(header::CONTENT_TYPE.as_str(), "text/plain")
+                    .append_header(header::CONTENT_LENGTH.as_str(), "11")
                     .set_body_string("Hello, Head"),
             )
             .mount(&server)
@@ -216,7 +216,7 @@ mod tests {
             .and(path("/example"))
             .respond_with(
                 ResponseTemplate::new(200)
-                    .append_header(header::CONTENT_TYPE, "text/plain")
+                    .append_header(header::CONTENT_TYPE.as_str(), "text/plain")
                     .set_body_string("Hello, Options"),
             )
             .mount(&server)
