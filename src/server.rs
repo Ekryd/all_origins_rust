@@ -1,7 +1,8 @@
 use std::future::Future;
+use std::str::FromStr;
 
-use reqwest::Method;
 use serde::{Deserialize, Serialize};
+use warp::http::Method;
 use warp::http::{header, HeaderMap, HeaderValue};
 use warp::hyper::{Body, StatusCode};
 use warp::reply::Response;
@@ -51,7 +52,9 @@ async fn get_handler(q: QueryParams, m: Method, headers: HeaderMap) -> Response 
     }
     let (url, charset) = (q.url.unwrap(), q.charset);
 
-    let mut content = process_request_get(url, m).await.into_response();
+    let mut content = process_request_get(url, reqwest::Method::from_str(m.as_str()).unwrap())
+        .await
+        .into_response();
     add_headers(headers, charset, &mut content);
 
     content
@@ -72,7 +75,7 @@ async fn raw_handler(q: QueryParams, m: Method, headers: HeaderMap) -> Response 
     }
     let (url, charset) = (q.url.unwrap(), q.charset);
 
-    let response = process_request_raw(url, m).await;
+    let response = process_request_raw(url, reqwest::Method::from_str(m.as_str()).unwrap()).await;
     match response {
         Ok(mut content) => {
             add_headers(headers, charset, &mut content);

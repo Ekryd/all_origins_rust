@@ -2,9 +2,9 @@
 #[cfg(test)]
 mod tests {
     use crate::server::all_filters;
-    use reqwest::header;
     use serde_json::Value;
     use std::time::Duration;
+    use warp::http::header;
     use warp::test::request;
     use wiremock::matchers::{method, path};
     use wiremock::{Mock, MockServer, ResponseTemplate};

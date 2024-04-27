@@ -1,6 +1,7 @@
 use crate::get_page::GetPage;
+use reqwest::Method;
 use tokio::time::Instant;
-use warp::http::{header, HeaderValue, Method};
+use warp::http::{header, HeaderValue};
 use warp::hyper::Body;
 use warp::reply::{json, Json, Response};
 
